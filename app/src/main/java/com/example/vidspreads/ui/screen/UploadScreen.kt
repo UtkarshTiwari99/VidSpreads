@@ -34,15 +34,15 @@ fun UploadScreen(modifier: Modifier, navController: NavHostController){
 
     Column (modifier=modifier.fillMaxSize()){
         Box {
-            VideoPreviewBox(
-                thumbnailBitmap  = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.Black)
-                    .padding(vertical = 4.dp)
-                    .height(190.dp)
-                    .align(Alignment.Center)
-            )
+//            VideoPreviewBox(
+//                thumbnailBitmap = ,
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .background(Color.Black)
+//                    .padding(vertical = 4.dp)
+//                    .height(190.dp)
+//                    .align(Alignment.Center)
+//            )
 
             IconButton(
                 onClick = {},

@@ -121,7 +121,9 @@ fun VideoUI(modifier: Modifier, videoViewModel: VideoViewModel){
                 {
                     videoViewModel.onSeekChange(it)
                 },
-                { videoViewModel.convertHHMMSS(it) },
+                {
+                    videoViewModel.convertHHMMSS(it)
+                },
               modifier = modifier
             )
         }

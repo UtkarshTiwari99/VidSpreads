@@ -20,14 +20,21 @@ fun Navigation( videoVideoModel: VideoViewModel) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = Screen.MainScreen.route){
+
         composable(route =Screen.MainScreen.route) {
             Log.e("player data", videoVideoModel.listOfAlbums.value.toString())
             HomeScreen(navController = navController,
                 name = "VidStream", listOfAlbumData = videoVideoModel.listOfAlbums.value, onClick = {
-
+                    try {
+                        navController.navigate(Screen.AlbumScreen.route +"/"+ it.id+"/"+it.imageCount)
+                    }catch (e:Exception){
+                        Log.e("player nav",e.message.toString())
+                    }
+                    Log.e("player nav",it.toString())
                 }
             )
         }
+
         composable(route = Screen.VideoScreen.route){
             VideoScreen(navController =navController,videoViewModel = videoVideoModel)
         }
@@ -36,12 +43,15 @@ fun Navigation( videoVideoModel: VideoViewModel) {
                 .fillMaxSize()
                 .background(Color.Black.copy(alpha = 0.22f)))
         }
-        composable(route = Screen.AlbumScreen.route){
-            AlbumScreen(videoVideoModel.videoList.value){
+        composable(route = Screen.AlbumScreen.route+"/{albumId}/{size}"){ navBackStack ->
+            val albumId = navBackStack.arguments?.getString("albumId")
+            val size = navBackStack.arguments?.getString("size")
+            videoVideoModel.getVideos(albumId?:"",size?.toInt()?:0)
+            AlbumScreen(videoVideoModel.images){
                 if (it.title != videoVideoModel.currentVideo.value.title) {
                         videoVideoModel.setVideo(it)
-                    }
-                    navController.navigate(Screen.VideoScreen.route)
+                }
+                navController.navigate(Screen.VideoScreen.route)
             }
         }
     }

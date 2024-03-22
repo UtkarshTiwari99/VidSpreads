@@ -12,16 +12,30 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import android.util.Log
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.example.vidspreads.data.datasource.AlbumDataSource
+import com.example.vidspreads.data.datasource.VideoDataSource
 import com.example.vidspreads.data.model.AlbumData
 import com.example.vidspreads.data.model.Video
-import com.example.vidspreads.data.utls.VideoFetchUtils
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 
 
-class VideoViewModel(var player: Player):ViewModel() {
+class VideoViewModel (var player: Player, private val videoDataSource: VideoDataSource,private val albumDataSource: AlbumDataSource):ViewModel() {
+
+    lateinit var images: Flow<PagingData<Video>>
+    fun getVideos(bucketId: String,count:Int) {
+        images= videoDataSource.getVideos(bucketId,count)
+            .cachedIn(viewModelScope)
+    }
+
+    fun getAlbumData(){
+       viewModelScope.launch {
+            listOfAlbums.value= albumDataSource.getAlbumData()
+       }
+    }
 
     var orientation = MutableStateFlow(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT)
     private set
@@ -30,7 +44,9 @@ class VideoViewModel(var player: Player):ViewModel() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
-    var currentVideo= mutableStateOf(Video("","",null,"",0))
+    val listOfAlbums = mutableStateOf(emptyList<AlbumData>())
+
+    var currentVideo= mutableStateOf(Video("","", MutableStateFlow(null),0,0,0))
         private set(value) {
             duration.longValue = 0L
             isPlaying.value = false
@@ -51,11 +67,7 @@ class VideoViewModel(var player: Player):ViewModel() {
     var bufferPercentage= mutableLongStateOf(0L)
         private set
 
-    val videoList= mutableStateOf(emptyList<Video>())
-
-    val listOfAlbums = mutableStateOf(emptyList<AlbumData>())
-
-    fun setVideo(video: Video):Unit{
+    fun setVideo(video: Video){
         currentVideo.value=video
         setUpPlayerForVideo(video)
     }
@@ -95,13 +107,15 @@ class VideoViewModel(var player: Player):ViewModel() {
     private fun setUpPlayerForVideo(video: Video){
         val hlsUri=video.videoUrl
         try {
-            player.clearMediaItems()
-            if (player.mediaItemCount==0){
-                player.setMediaItem(MediaItem.fromUri(hlsUri))
-                attachCounter()
-                start()
+            viewModelScope.launch {
+                player.clearMediaItems()
+                if (player.mediaItemCount == 0) {
+                    player.setMediaItem(MediaItem.fromUri(hlsUri))
+                    attachCounter()
+                    start()
+                }
             }
-        }catch (e:Exception){
+        } catch (e: Exception) {
             println(e.message)
         }
     }
@@ -124,25 +138,29 @@ class VideoViewModel(var player: Player):ViewModel() {
     }
 
     fun convertHHMMSS(time:Long):String{
-        val hr=time/3600000;
-        val min=time/60000;
-        val sec=(time%60000)/1000;
+        val hr=time/3600000
+        val min=time/60000
+        val sec=(time%60000)/1000
         return (if(hr<=0)"" else if (hr<10) "0${hr}:" else "${hr}:") +
                 (if(min<=0)"00:" else if (min<10) "0${min}:" else "${min}:") +
                 (if(sec<=0) "00" else if (sec<10) "0${sec}" else "$sec")
     }
 
-    fun play(){player.play()}
+//    fun play(){player.play()}
 
-    fun pause(){player.pause()}
+//    fun pause(){player.pause()}
 
-    fun seekTo(to: Long){player.seekTo(to)}
+//    fun seekTo(to: Long){player.seekTo(to)}
 
-    fun changeOrientation(flag: Boolean){
-        if(flag)
-            orientation.value = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
-        else
-            orientation.value =ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
+    fun changeOrientation(flag: Boolean) {
+        viewModelScope.launch {
+            if (flag) {
+                orientation.value = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+            } else {
+                orientation.value = ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
+            }
+        }
     }
+
 
 }

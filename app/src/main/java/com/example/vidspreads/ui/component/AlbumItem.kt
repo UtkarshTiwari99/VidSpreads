@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -30,14 +31,16 @@ fun AlbumItem(
     modifier: Modifier,
     onClick: (albumData: AlbumData) -> Unit
 ) {
-    Column(modifier.clickable { onClick(albumData) }) {
+    Column(modifier) {
         Column (Modifier.width(IntrinsicSize.Min)){
         VideoPreviewBox(
-            albumData.videoThumbnails,
-            modifier = Modifier.size(totalWidth)
+            albumData.videoThumbnails.collectAsState(),
+            modifier = Modifier
+                .size(totalWidth)
                 .clip(RoundedCornerShape(18.dp))
                 .background(Color.Blue)
                 .border(0.4.dp, Color.White, RoundedCornerShape(18.dp))
+                .clickable { onClick(albumData) }
         )
         Text(
             text = albumData.albumName,

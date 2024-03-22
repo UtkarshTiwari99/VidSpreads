@@ -28,7 +28,7 @@ import com.example.vidspreads.data.model.Video
 fun BottomVideoUI(video: Video, modifier: Modifier){
     Column (modifier =  modifier.padding(horizontal = 8.dp)){
         Text(text = video.title, color = Color.White, fontSize =22.sp, fontWeight = FontWeight.SemiBold,modifier= Modifier.padding(bottom = 2.dp))
-        Text(text = "${video.views} views", fontWeight = FontWeight.Medium, fontSize = 13.sp)
+        Text(text = "${video.size}", fontWeight = FontWeight.Medium, fontSize = 13.sp)
         Row (modifier = Modifier
             .padding(vertical = 4.dp)
             .fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween){
@@ -42,7 +42,7 @@ fun BottomVideoUI(video: Video, modifier: Modifier){
                         .background(Color.White), Color.Black
                 )
                 Text(
-                    text = "${video.channel} Channel",
+                    text = "Channel",
                     fontWeight = FontWeight.SemiBold,
                     color = Color.White,
                     fontSize = 18.sp
