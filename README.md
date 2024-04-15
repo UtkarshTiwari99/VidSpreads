@@ -10,7 +10,14 @@ This mobile application empowers you to securely access and manage your videos f
 
 **Screenshots:**
 
-(Replace with URLs to 4 screenshots showcasing the app's functionality)
+https://drive.google.com/file/d/1vm2chk4lpgEGqD0TWnKrGdcbwXS1hOCO/view?usp=drivesdk
+
+https://drive.google.com/file/d/1vh8X9gjBrnPXPu-R0h4XYCV0K9Bp2Y81/view?usp=drivesdk
+
+https://drive.google.com/file/d/1vgw10twsQOiIh1MmrViyxAM9H77OqJ_y/view?usp=drivesdk
+
+https://drive.google.com/file/d/1vdydl-W1XCtnI1T2Xilz1MI-fzmajI7X/view?usp=drivesdk
+
 
 **Built With:**
 
