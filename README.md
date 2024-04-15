@@ -16,8 +16,7 @@ This mobile application empowers you to securely access and manage your videos f
 
 <img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010335_VidSpreads.jpg" width="500" height="300" alt="Alt text">
 
-<img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010411_Permission+controller.jpg" width="200" height="500" alt="Alt text">
-</div>
+<img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010411_Permission+controller.jpg" width="200" height="400" alt="Alt text">
 
 
 **Built With:**
