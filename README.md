@@ -9,8 +9,8 @@ This mobile application empowers you to securely access and manage your videos f
 * **MVVM Architecture:** The application adheres to the Model-View-ViewModel (MVVM) architecture pattern, promoting clear separation of concerns, promoting code maintainability, and fostering testability.
 
 **Screenshots:**
-<div style="display: flex; justify-content: space-between;">
-<img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010411_Permission+controller.jpg" width="400" height="400" alt="Alt text"><img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010313_VidSpreads.jpg" width="400" height="400" alt="Alt text">
+<div style="display: flex; ">
+<img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010411_Permission+controller.jpg" width="200" height="400" alt="Alt text"><img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010313_VidSpreads.jpg" width="200" height="400" alt="Alt text">
 </div>
 
 <img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010335_VidSpreads.jpg" width="500" height="300" alt="Alt text">
