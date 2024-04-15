@@ -10,13 +10,13 @@ This mobile application empowers you to securely access and manage your videos f
 
 **Screenshots:**
 
-![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010153_VidSpreads.jpg)
+![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010153_VidSpreads.jpg "width=200")
 
-![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010313_VidSpreads.jpg)
+![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010313_VidSpreads.jpg "width=200")
 
-![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010335_VidSpreads.jpg)
+![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010335_VidSpreads.jpg "width=200")
 
-![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010411_Permission+controller.jpg)
+![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010411_Permission+controller.jpg "width=200")
 
 
 **Built With:**
