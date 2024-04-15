@@ -1,4 +1,4 @@
-# Gallery App
+# Videos Gallery App
 
 This mobile application empowers you to securely access and manage your videos from anywhere, offering a convenient and secure way to browse your collection.
 
@@ -32,4 +32,4 @@ This mobile application empowers you to securely access and manage your videos f
     * **Media3:** Another popular video loading library known for its performance and flexibility .
 
 
-The Gallery App should automatically detect these new videos and display them within its interface.
+The Video Gallery App should automatically detect these new videos and display them within its interface.
