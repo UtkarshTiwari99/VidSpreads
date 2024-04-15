@@ -10,6 +10,8 @@ This mobile application empowers you to securely access and manage your videos f
 
 **Screenshots:**
 
+<img src="https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010411_Permission+controller.jpg" width="200" height="150" alt="Alt text">
+
 ![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010153_VidSpreads.jpg "height=100")
 
 ![Alt text](https://videohlsfiles.s3.ap-south-1.amazonaws.com/Screenshot_20240416_010313_VidSpreads.jpg "height=100")
